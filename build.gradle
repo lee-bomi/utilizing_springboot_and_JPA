@@ -20,11 +20,12 @@ repositories {           //라이브러리 다운 관련
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-devtools'          //view파일에 수정이 있을때 Build > recompile 하면 수정 가능하게 함(그 이외에도 편리한기능이많음)
+	implementation 'org.springframework.boot:spring-boot-devtools'          	//view파일에 수정이 있을때 Build > recompile 하면 수정 가능하게 함(그 이외에도 편리한기능이많음)
 
-	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'   //콘솔에 쿼리파라미터가 ? 이아닌 정보가 찍히도록하는 외부라이브러리(스프링부트에서 등록한lib는 버전정보를 각자 맞게세팅해둠)
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'

@@ -10,17 +10,17 @@ import javax.persistence.*;
 @Setter
 public class Delivery {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")            // 1:1매핑일때 FK를 잡고, 잡혀지는 클래스에서는 mappedBy를 기재해준다.
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
 
     @Embedded
     private Address address;
 
-    @Enumerated(EnumType.STRING)       //Enum타입일때 어노테이션달기, default값은 ORDINAL(숫자로 들어간다_순서가매겨진다), 그렇기 때문에 꼭 String으로 쓴다!
-    private DeliveryStatus status;      //READY, COMP
+    @Enumerated(EnumType.STRING)              //Enum타입과 연결될때 꼭 어노테애션 추가
+    private DeliveryStatus status;            //READY, COMP
+
 }
